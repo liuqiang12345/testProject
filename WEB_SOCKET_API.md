@@ -26,22 +26,22 @@ wss接口的url为: wss://192.168.1.1/
 
 - 事件订阅返回init数据格式
 
-  ```json
-  {`
-  	`"code": 4,`
-  	`"data": {`
-  		`"data": {`
-  			`"realTimeList": [],`//实时交易数据
-  			`"orderbook": {` //orderbook
-  				`"b": [],` //买
-  				`"s": [],` //卖
-  				`"type": "ORDERBOOK"`
-  			`},`
-  			`"first": "first"`
-  		`},`
-  		`"wsproperty": "init"`
-  	`}`
-  `}`
+  ```java
+  {
+  	"code": 4,
+  	"data": {
+  		"data": {
+  			"realTimeList": [],//实时交易数据
+  			"orderbook": { 
+  				"b": [], //买
+  				"s": [], //卖
+  				"type": "ORDERBOOK"`
+  			},
+  			"first": "first"
+  		},
+  		"wsproperty": "init"`
+  	}
+  }
   ```
 
   
