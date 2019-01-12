@@ -55,43 +55,43 @@ wss接口的url为: wss://192.168.1.1/
 
 - orderbook payload
 
-```json
-`{`
-	`"code": 4,`
-	`"data": {`
-		`"data": {`
-			`"b": [],`  买
-			`"s": [],`  卖
-			`"symbol": "BTC-USDT",`
-			`"type": "ORDERBOOK"`
-		`},`
-		`"wsproperty": "RealtimeDate"`
-	`}`
-`}`
+```java
+{
+	"code": 4,
+	"data": {
+		"data": {
+			"b": [],  //买
+			"s": [],  //卖
+			"symbol": "BTC-USDT",
+			"type": "ORDERBOOK"
+		},
+		"wsproperty": "RealtimeDate"
+	}
+}
 
-- 
+
 ```
 
 
 
 - trsde payload
 
-```json
-`{`
-	`"code": 4,`
-	`"data": {`
-		`"data": {`
-			`"p": "1.00",` //价格
-			`"s": "buy",` 
-			`"symbol": "BTC-USDT",` //币种-市场
-			`"t": "1547276117",` 时间
-			`"type": "TRADE",`
-			`"v": "0.70",` 成交数量
-			`"ver": "429.00"` 自增id
-		`},`
-		`"wsproperty": "RealtimeDate"`
-	`}`
-`}`
+```java
+{
+	"code": 4,
+	"data": {
+		"data": {
+			"p": "1.00", //价格
+			"s": "buy", 
+			"symbol": "BTC-USDT", //币种-市场
+			"t": "1547276117", //时间
+			"type": "TRADE",
+			"v": "0.70", 成交数量
+			"ver": "429.00" 自增id
+		},
+		"wsproperty": "RealtimeDate"
+	}
+}
 
 
 ```
