@@ -26,11 +26,12 @@ wss接口的url为: wss://192.168.1.1/
 
 - 事件订阅返回init数据格式
 
-  `{`
+  ```json
+  {`
   	`"code": 4,`
   	`"data": {`
   		`"data": {`
-  			`"realTimeList": [],`实时交易数据
+  			`"realTimeList": [],`//实时交易数据
   			`"orderbook": {` //orderbook
   				`"b": [],` //买
   				`"s": [],` //卖
@@ -41,6 +42,7 @@ wss接口的url为: wss://192.168.1.1/
   		`"wsproperty": "init"`
   	`}`
   `}`
+  ```
 
   
 
@@ -53,12 +55,13 @@ wss接口的url为: wss://192.168.1.1/
 
 - orderbook payload
 
+```json
 `{`
 	`"code": 4,`
 	`"data": {`
 		`"data": {`
-			`"b": [],`
-			`"s": [],`
+			`"b": [],`  买
+			`"s": [],`  卖
 			`"symbol": "BTC-USDT",`
 			`"type": "ORDERBOOK"`
 		`},`
@@ -66,8 +69,14 @@ wss接口的url为: wss://192.168.1.1/
 	`}`
 `}`
 
+- 
+```
+
+
+
 - trsde payload
 
+```json
 `{`
 	`"code": 4,`
 	`"data": {`
@@ -83,6 +92,13 @@ wss接口的url为: wss://192.168.1.1/
 		`"wsproperty": "RealtimeDate"`
 	`}`
 `}`
+
+
+```
+
+
+
+
 
 
 
