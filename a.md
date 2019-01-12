@@ -1,6 +1,0 @@
-
-# ONEROOT DCEX API
-## HTTP 接口
-## WEBSOCK 接口
-
-
