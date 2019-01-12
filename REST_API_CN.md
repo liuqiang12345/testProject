@@ -31,13 +31,15 @@
 
 如果 查询有分页条件(page, count)接口 返回数据格式
 
-​	{
+```java
+	{
 
-​           "num":5  // 数据总数量
+         "num":5  // 数据总数量
 
-​	    "list":[{"":""}……...]   查询数据 集合
+	    "list":[{"":""}……...]   查询数据 集合
 
-​	}
+	}
+```
 
 
 
@@ -51,27 +53,32 @@
 
 - encodeData : 用base64 编码 (业务参数数据) 
 
-- 签名事例:
+- 签名事例
 
+  
+
+  ```java
   {
-
-  ​	"apiKey" : "XXXXXXXXXXXX", 	// (用户申请页面获取)
-
-  ​	"bizCode" :"PLACE_ORDER_COIN", 	//参考[业务编号表]
-
-  ​	"encodeData" : "Base64.encode ({"symbol","BTC-ETH","type":"LIMIT", ... ...})"  //参考 [业务参数说明]
-
-  ​	"msgNo":"1234567890", 参考[请求参数说明]
-
-  ​	"timestamp":15348923323343,
-
-  ​	"version":"V1.0.0"	 // 参考  [REST API简介] ]
-
-  }   字典顺序排序(升序)    生成 源串:
-
+  
+      "apiKey" : "XXXXXXXXXXXX", 	// (用户申请页面获取)
+  
+  	"bizCode" :"PLACE_ORDER_COIN", 	//参考[业务编号表]
+  
+  	"encodeData" : "Base64.encode ({"symbol","BTC-ETH","type":"LIMIT", ... ...})"  //参考 [业务参数说明]
+  
+  	"msgNo":"1234567890", 参考[请求参数说明]
+  
+  	"timestamp":15348923323343,
+  
+  	"version":"V1.0.0"	 // 参考  [REST API简介] ]
+  
+  }  
+  字典顺序排序(升序)    生成 源串:
   apiKey=XXXXXXX&bizCode=PLACE_ORDER_SPOT&encodeData=XXXXXXX&msgNo=123456789&timestamp=1455323333332&version=v1.0.0
-
   HmacSHA256 生成 signature
+  ```
+
+  
 
 ## [请求与应答] (重要)
 
@@ -79,27 +86,39 @@
 
 - 请求参数事例:
 
+  ```java
+   {
+    	"timestamp":"1455323333332",
+    	"apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", //(用户申请页面获取)
+    	"bizCode":"PLACE_ORDER_COIN",  //参考[业务编号表]
+        	"version":"v1.0.0",
+        	"encodeData":"eyJhcGFhIjoicHBwcHBwcHAifQ==",   //base64 编码
+    	"signature":"1EF13F23D123A3123GXXXXXXXXXXXXXXXXXXXXXXXXX"	//参考[数据签名]
+    }
+   
+  ```
+
+  
+
+  应答事例:
+
+  
+
+  ```java
   {
-  ​	"timestamp":"1455323333332",
-  ​	"apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", //(用户申请页面获取)
-  ​	"bizCode":"PLACE_ORDER_COIN",  //参考[业务编号表]
-  ​    	"version":"v1.0.0",
-  ​    	"encodeData":"eyJhcGFhIjoicHBwcHBwcHAifQ==",   //base64 编码
-  ​	"signature":"1EF13F23D123A3123GXXXXXXXXXXXXXXXXXXXXXXXXX"	//参考[数据签名]
-  }
+        "encodeData": "业务返回数据", //base64 编码 数据类容参考 [业务参数说明]
+        "signature": "签名数据",    //参考 [数据签名]
+        "msgCode": "应答码", //参考 [应答码对照表]
+        "msg": "应答码明细",  //  尽量避免作为业务判断,参考 [应答码对照表]
+        "timestamp": 1545220632343,
+        "vesion": "v1.0.0"
+    }
+  
+  ```
 
-- 应答事例:
+  
 
-  {
-  ​    "encodeData": "业务返回数据", //base64 编码 数据类容参考 [业务参数说明]
-  ​    "signature": "签名数据",    //参考 [数据签名]
-  ​    "msgCode": "应答码", //参考 [应答码对照表]
-  ​    "msg": "应答码明细",  //  尽量避免作为业务判断,参考 [应答码对照表]
-  ​    "timestamp": 1545220632343,
-  ​    "vesion": "v1.0.0"
-  }
-
-## [业务编号表]
+  [业务编号表]
 
 注意:编码版兼容(v.2.0.0 的业务编码 在v1.0.0 无法兼容使用 反之兼容可用)状态默认 可用
 
